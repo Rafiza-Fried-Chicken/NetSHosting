@@ -1,56 +1,73 @@
-<!doctype html>
-</div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NetsHosting</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">netshosting</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#hosting-plans">Hosting Plans</a></li>
+      <li><a href="#domains">Domains</a></li>
+      <li><a href="#support">Support</a></li>
+      <li><a href="#cloud">Cloud / Temporary Storage</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
+  <!-- Sections -->
+  <main id="app">
+    <section id="home" class="page active">
+      <h1>Welcome to <strong>netshosting</strong></h1>
+      <p>Professional, reliable, and elegant hosting solutions.</p>
+    </section>
 
-<section id="about" class="route">
-<div class="container">
-<h2>About Us</h2>
-<p class="muted">NetsHosting powers modern businesses with reliable global infrastructure and fanatical support.</p>
-<div class="grid two">
-<div class="card"><strong>99.99%</strong><br/>Uptime Commitment</div>
-<div class="card"><strong>45+</strong><br/>Edge Locations</div>
-</div>
-</div>
-</section>
+    <section id="hosting-plans" class="page">
+      <h1>Hosting Plans</h1>
+      <p>Choose the perfect hosting plan for your business.</p>
+    </section>
 
+    <section id="domains" class="page">
+      <h1>Domains</h1>
+      <p>Find and register your perfect domain name.</p>
+    </section>
 
-<section id="contact" class="route">
-<div class="container">
-<h2>Contact</h2>
-<p class="muted">Let’s build something great.</p>
-<form class="card form" id="contactForm">
-<label>
-<span>Company</span>
-<input type="text" name="company" placeholder="Your company" />
-</label>
-<label>
-<span>Email</span>
-<input required type="email" name="email" placeholder="you@company.com" />
-</label>
-<label>
-<span>Tell us about your needs</span>
-<textarea required name="needs" rows="4"></textarea>
-</label>
-<button class="btn primary" type="submit">Send</button>
-<div id="contactMsg" class="muted"></div>
-</form>
-</div>
-</section>
+    <section id="support" class="page">
+      <h1>Support</h1>
+      <p>We’re here to help you 24/7.</p>
+    </section>
 
+    <section id="cloud" class="page">
+      <h1>Cloud / Temporary Storage</h1>
+      <p>Coming Soon / Will be available after update</p>
 
-</main>
+      <div class="upload-widget">
+        <h2>Test Upload</h2>
+        <form id="uploadForm">
+          <input type="file" id="fileInput" required />
+          <button type="submit">Upload</button>
+        </form>
+        <div id="uploadResult"></div>
+      </div>
+    </section>
 
+    <section id="about" class="page">
+      <h1>About Us</h1>
+      <p>NetsHosting is a leading hosting company providing cloud, domain, and support services.</p>
+    </section>
 
-<footer class="footer">
-<div class="container row between center">
-<small>© <span id="year"></span> NetsHosting. All rights reserved.</small>
-<a class="muted" href="#support">Support</a>
-</div>
-</footer>
+    <section id="contact" class="page">
+      <h1>Contact</h1>
+      <p>Email: support@netshosting.com</p>
+    </section>
+  </main>
 
-
-<script src="/app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
-
