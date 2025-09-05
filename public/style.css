@@ -1,1 +1,242 @@
+/* Reset & base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  color: #222222;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: #1a73e8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  color: #155ab6;
+  outline: none;
+}
+
+header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu a {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: inline-block;
+  user-select: none;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.nav-menu a.active,
+.nav-menu a:focus-visible {
+  background-color: #e8f0fe;
+  color: #1a73e8;
+  outline-offset: 2px;
+}
+
+main#app {
+  flex-grow: 1;
+  max-width: 900px;
+  margin: 2rem auto 3rem;
+  padding: 0 1rem;
+  min-height: 60vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.hero .logo-text {
+  font-weight: 900;
+  font-size: 3.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #111827;
+  letter-spacing: -0.05em;
+  user-select: none;
+}
+
+/* Section common styles */
+.section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: opacity, transform;
+}
+
+.section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section headings */
+.section h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #111827;
+  text-align: center;
+}
+
+/* Hosting Plans example */
+.plans-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.plan-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.3s ease;
+}
+
+.plan-card:hover,
+.plan-card:focus-within {
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.1);
+}
+
+.plan-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+.plan-price {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #2563eb;
+  margin-bottom: 1rem;
+}
+
+.plan-features {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 1.5rem 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+.plan-features li {
+  margin-bottom: 0.4rem;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: #1e40af;
+  outline: none;
+}
+
+/* Contact form */
+.contact-form {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+.contact-form button {
+  align-self: flex-start;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .nav-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  main#app {
+    margin: 1.5rem 1rem 2rem;
+  }
+
+  .hero .logo-text {
+    font-size: 2.5rem;
+  }
+}
