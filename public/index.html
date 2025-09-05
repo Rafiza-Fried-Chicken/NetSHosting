@@ -1,73 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NetsHosting</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NetsHosting — Home</title>
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <div class="logo">netshosting</div>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#hosting-plans">Hosting Plans</a></li>
-      <li><a href="#domains">Domains</a></li>
-      <li><a href="#support">Support</a></li>
-      <li><a href="#cloud">Cloud / Temporary Storage</a></li>
-      <li><a href="#about">About Us</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<header class="topbar">
+<div class="container row between center">
+<div class="logo">netshosting</div>
+<button class="nav-toggle" aria-label="Open menu">☰</button>
+<nav class="nav">
+<ul>
+<li><a href="index.html" class="active">Home</a></li>
+<li><a href="hosting.html">Hosting Plans</a></li>
+<li><a href="domains.html">Domains</a></li>
+<li><a href="support.html">Support</a></li>
+<li><a href="cloud.html">Cloud / Temporary Storage</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
 
-  <!-- Sections -->
-  <main id="app">
-    <section id="home" class="page active">
-      <h1>Welcome to <strong>netshosting</strong></h1>
-      <p>Professional, reliable, and elegant hosting solutions.</p>
-    </section>
 
-    <section id="hosting-plans" class="page">
-      <h1>Hosting Plans</h1>
-      <p>Choose the perfect hosting plan for your business.</p>
-    </section>
+<main class="container hero">
+<h1 class="brand">netshosting</h1>
+<p class="lead">Enterprise-grade hosting with elegant simplicity — fast, secure, and reliable.</p>
+<div class="cta">
+<a class="btn primary" href="hosting.html">View Plans</a>
+<a class="btn ghost" href="contact.html">Contact Sales</a>
+</div>
+</main>
 
-    <section id="domains" class="page">
-      <h1>Domains</h1>
-      <p>Find and register your perfect domain name.</p>
-    </section>
 
-    <section id="support" class="page">
-      <h1>Support</h1>
-      <p>We’re here to help you 24/7.</p>
-    </section>
+<footer class="footer container">
+<small>© <span id="year"></span> NetsHosting. All rights reserved.</small>
+<nav class="foot-links"><a href="support.html">Support</a></nav>
+</footer>
 
-    <section id="cloud" class="page">
-      <h1>Cloud / Temporary Storage</h1>
-      <p>Coming Soon / Will be available after update</p>
 
-      <div class="upload-widget">
-        <h2>Test Upload</h2>
-        <form id="uploadForm">
-          <input type="file" id="fileInput" required />
-          <button type="submit">Upload</button>
-        </form>
-        <div id="uploadResult"></div>
-      </div>
-    </section>
-
-    <section id="about" class="page">
-      <h1>About Us</h1>
-      <p>NetsHosting is a leading hosting company providing cloud, domain, and support services.</p>
-    </section>
-
-    <section id="contact" class="page">
-      <h1>Contact</h1>
-      <p>Email: support@netshosting.com</p>
-    </section>
-  </main>
-
-  <script src="app.js"></script>
+<script src="/app.js"></script>
 </body>
 </html>
