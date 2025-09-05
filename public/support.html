@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Support — NetsHosting</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+<div class="container row between center">
+<div class="logo">netshosting</div>
+<button class="nav-toggle" aria-label="Open menu">☰</button>
+<nav class="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="hosting.html">Hosting Plans</a></li>
+<li><a href="domains.html">Domains</a></li>
+<li><a href="support.html" class="active">Support</a></li>
+<li><a href="cloud.html">Cloud / Temporary Storage</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+
+<main class="container">
+<h2>Support</h2>
+<p class="muted">We’re available 24/7 — submit a ticket and we’ll respond quickly.</p>
+<form class="card form" id="supportForm">
+<label><span>Name</span><input required type="text" name="name" placeholder="Your name"></label>
+<label><span>Email</span><input required type="email" name="email" placeholder="you@example.com"></label>
+<label><span>Message</span><textarea required name="message" rows="4"></textarea></label>
+<button class="btn primary" type="submit">Submit Ticket</button>
+<div id="supportMsg" class="muted"></div>
+</form>
+</main>
+
+
+<footer class="footer container">
+<small>© <span id="year4"></span> NetsHosting</small>
+</footer>
+
+
+<script src="/app.js"></script>
+</body>
+</html>
