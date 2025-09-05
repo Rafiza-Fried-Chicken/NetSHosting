@@ -1,44 +1,38 @@
-// routes/files.js
-'use strict';
-
 const express = require('express');
-const path = require('path');
-const db = require('../utils/db');
-const storage = require('../utils/storage');
+const { getFile } = require('../utils/db');
+const { getSignedUrlFor } = require('../utils/storage');
+
 
 const router = express.Router();
 
-/**
- * GET /:slug
- * Lookup file metadata by slug and redirect to signed URL for download/access
- */
-router.get('/:slug', async (req, res) => {
-  const { slug } = req.params;
-  
-  db.getFileBySlug(slug, async (err, file) => {
-    if (err) {
-      console.error('DB error:', err);
-      return res.status(500).send('Internal server error');
-    }
-    if (!file) {
-      return res.status(404).send('File not found');
-    }
-    
-    try {
-      // Construct storage key with slug + extension from original filename
-      const ext = path.extname(file.filename) || '';
-      const key = `${slug}${ext}`;
-      
-      // Get signed URL valid for 1 hour (3600 seconds)
-      const signedUrl = await storage.getSignedUrl(key, 3600);
-      
-      // Redirect client to signed URL
-      res.redirect(signedUrl);
-    } catch (storageErr) {
-      console.error('Storage error:', storageErr);
-      res.status(500).send('Failed to retrieve file');
-    }
-  });
+
+// GET /api/files/:id – returns metadata or redirect to signed URL with ?download
+router.get('/files/:id', async (req, res) => {
+try {
+const row = await getFile(req.params.id);
+if (!row) return res.status(404).json({ error: 'Not found' });
+
+
+if (req.query.download === '1') {
+const signed = await getSignedUrlFor(row.storage_key);
+return res.redirect(signed);
+}
+
+
+res.json({
+id: row.id,
+name: row.original_name,
+mime: row.mime,
+size: row.size,
+url: row.url,
+created_at: row.created_at,
+});
+} catch (err) {
+console.error(err);
+res.status(500).json({ error: 'Lookup failed' });
+}
 });
 
+
 module.exports = router;
+
