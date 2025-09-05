@@ -1,0 +1,42 @@
+<!doctype html>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+<div class="container row between center">
+<div class="logo">netshosting</div>
+<button class="nav-toggle" aria-label="Open menu">☰</button>
+<nav class="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="hosting.html">Hosting Plans</a></li>
+<li><a href="domains.html" class="active">Domains</a></li>
+<li><a href="support.html">Support</a></li>
+<li><a href="cloud.html">Cloud / Temporary Storage</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+
+<main class="container">
+<h2>Domains</h2>
+<p class="muted">Search and register domains quickly.</p>
+<form class="domain-form" onsubmit="return false;">
+<input type="text" id="domainInput" placeholder="yourbrand" aria-label="Domain search">
+<button class="btn primary" id="domainBtn">Search</button>
+</form>
+<div id="domainResult" class="domain-result muted"></div>
+</main>
+
+
+<footer class="footer container">
+<small>© <span id="year3"></span> NetsHosting</small>
+</footer>
+
+
+<script src="/app.js"></script>
+</body>
+</html>
