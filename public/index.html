@@ -1,30 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>netshosting</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <nav class="navbar">
-      <ul class="nav-menu" role="menubar" aria-label="Primary navigation">
-        <li role="none"><a href="#home" role="menuitem" tabindex="0" id="nav-home">Home</a></li>
-        <li role="none"><a href="#hosting-plans" role="menuitem" tabindex="-1" id="nav-hosting-plans">Hosting Plans</a></li>
-        <li role="none"><a href="#domains" role="menuitem" tabindex="-1" id="nav-domains">Domains</a></li>
-        <li role="none"><a href="#support" role="menuitem" tabindex="-1" id="nav-support">Support</a></li>
-        <li role="none"><a href="#cloud" role="menuitem" tabindex="-1" id="nav-cloud">Cloud / Temporary Storage</a></li>
-        <li role="none"><a href="#about-us" role="menuitem" tabindex="-1" id="nav-about-us">About Us</a></li>
-        <li role="none"><a href="#contact" role="menuitem" tabindex="-1" id="nav-contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<!doctype html>
+</div>
+</section>
 
-  <main id="app" role="main" tabindex="-1">
-    <!-- Dynamic content loads here -->
-  </main>
 
-  <script src="app.js" defer></script>
+<section id="about" class="route">
+<div class="container">
+<h2>About Us</h2>
+<p class="muted">NetsHosting powers modern businesses with reliable global infrastructure and fanatical support.</p>
+<div class="grid two">
+<div class="card"><strong>99.99%</strong><br/>Uptime Commitment</div>
+<div class="card"><strong>45+</strong><br/>Edge Locations</div>
+</div>
+</div>
+</section>
+
+
+<section id="contact" class="route">
+<div class="container">
+<h2>Contact</h2>
+<p class="muted">Let’s build something great.</p>
+<form class="card form" id="contactForm">
+<label>
+<span>Company</span>
+<input type="text" name="company" placeholder="Your company" />
+</label>
+<label>
+<span>Email</span>
+<input required type="email" name="email" placeholder="you@company.com" />
+</label>
+<label>
+<span>Tell us about your needs</span>
+<textarea required name="needs" rows="4"></textarea>
+</label>
+<button class="btn primary" type="submit">Send</button>
+<div id="contactMsg" class="muted"></div>
+</form>
+</div>
+</section>
+
+
+</main>
+
+
+<footer class="footer">
+<div class="container row between center">
+<small>© <span id="year"></span> NetsHosting. All rights reserved.</small>
+<a class="muted" href="#support">Support</a>
+</div>
+</footer>
+
+
+<script src="/app.js"></script>
 </body>
 </html>
+
