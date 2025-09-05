@@ -1,68 +1,51 @@
-(function(){
-  const routes = ['home','hosting-plans','domains','support','cloud','about','contact'];
-  const $routes = new Map(routes.map(id => [id, document.getElementById(id)]));
-  const nav = document.getElementById('nav');
-  const toggle = document.querySelector('.nav-toggle');
+document.addEventListener("DOMContentLoaded", () => {
+  const pages = document.querySelectorAll(".page");
+  const links = document.querySelectorAll("nav a");
 
-  function setActive(hash){
-    const route = (hash || '#home').replace('#','');
-    routes.forEach(id => {
-      const el = $routes.get(id);
-      if (!el) return;
-      if (id === route) el.classList.add('active'); else el.classList.remove('active');
-    });
-    // active nav link
-    document.querySelectorAll('[data-route]').forEach(a => {
-      const isActive = a.getAttribute('href') === `#${route}`;
-      a.classList.toggle('active', isActive);
-    });
-    // close mobile menu
-    nav.classList.remove('show');
+  function showPage(hash) {
+    pages.forEach((page) => page.classList.remove("active"));
+    const target = document.querySelector(hash || "#home");
+    if (target) target.classList.add("active");
   }
 
-  window.addEventListener('hashchange', () => setActive(location.hash));
-  window.addEventListener('DOMContentLoaded', () => {
-    setActive(location.hash);
-    document.getElementById('year').textContent = new Date().getFullYear();
+  window.addEventListener("hashchange", () => {
+    showPage(location.hash);
   });
 
-  // Mobile nav
-  toggle.addEventListener('click', () => nav.classList.toggle('show'));
+  // Initial load
+  showPage(location.hash || "#home");
 
-  // Domains demo (mock)
-  const domainBtn = document.getElementById('domainBtn');
-  const domainInput = document.getElementById('domainInput');
-  const domainResult = document.getElementById('domainResult');
-  if (domainBtn) {
-    domainBtn.addEventListener('click', () => {
-      const q = (domainInput.value || '').trim();
-      if (!q) { domainResult.textContent = 'Please enter a domain name.'; return; }
-      const tlds = ['.com','.net','.io'];
-      const suggestions = tlds.map(t => `${q.replace(/\s+/g,'')}${t}`);
-      domainResult.innerHTML = `Available suggestions: <strong>${suggestions.join(', ')}</strong>`;
-    });
-  }
+  // Upload widget
+  const uploadForm = document.getElementById("uploadForm");
+  const fileInput = document.getElementById("fileInput");
+  const uploadResult = document.getElementById("uploadResult");
 
-  // Support form (mock submit)
-  const supportForm = document.getElementById('supportForm');
-  const supportMsg = document.getElementById('supportMsg');
-  if (supportForm) {
-    supportForm.addEventListener('submit', (e) => {
+  if (uploadForm) {
+    uploadForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      supportMsg.textContent = 'Ticket received. Our team will get back shortly.';
-      supportForm.reset();
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      const formData = new FormData();
+      formData.append("file", file);
+
+      uploadResult.textContent = "Uploading...";
+
+      try {
+        const res = await fetch("/api/upload", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (!res.ok) throw new Error("Upload failed");
+
+        const data = await res.json();
+        uploadResult.innerHTML = `
+          ✅ Uploaded: <a href="${data.url}" target="_blank">${data.url}</a>
+        `;
+      } catch (err) {
+        uploadResult.textContent = "❌ Upload error: " + err.message;
+      }
     });
   }
-
-  // Contact form (mock submit)
-  const contactForm = document.getElementById('contactForm');
-  const contactMsg = document.getElementById('contactMsg');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      contactMsg.textContent = 'Thanks! Sales will contact you soon.';
-      contactForm.reset();
-    });
-  }
-})();
-
+});
