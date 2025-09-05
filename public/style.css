@@ -1,40 +1,158 @@
-:root{
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-
-.grid{display:grid; gap:18px}
-.grid.plans{grid-template-columns:repeat(3,1fr)}
-.grid.two{grid-template-columns:repeat(2,1fr)}
-.card{background:var(--panel); border:1px solid #e2e8f0; border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
-.card.highlight{border-color:var(--primary); box-shadow:0 10px 30px rgba(14,165,233,.15)}
-.price{font-size:28px; font-weight:700}
-.price span{font-weight:500; color:var(--muted)}
-.muted{color:var(--muted)}
-
-
-.domain-form{display:flex; gap:10px; margin-top:10px}
-.domain-form input{flex:1; padding:12px 14px; border-radius:12px; border:1px solid #cbd5e1; background:white}
-.domain-result{margin-top:10px}
-
-
-.form label{display:flex; flex-direction:column; gap:6px}
-.form input, .form textarea{padding:12px 14px; border-radius:12px; border:1px solid #cbd5e1; background:white}
-.form button{margin-top:8px}
-
-
-.coming-soon{margin:40px auto; text-align:center; font-weight:700; font-size:22px; padding:24px; border-radius:16px; background:var(--primary-weak); border:1px solid #bae6fd}
-
-
-.footer{margin-top:40px; padding:24px 0; border-top:1px solid #e2e8f0}
-
-
-/* Responsive */
-@media (max-width: 900px){
-.grid.plans{grid-template-columns:1fr}
-.grid.two{grid-template-columns:1fr}
-}
-@media (max-width: 720px){
-.nav{position:absolute; right:0; top:48px; flex-direction:column; background:var(--panel); border:1px solid #e2e8f0; border-radius:16px; padding:10px; display:none}
-.nav.show{display:flex}
-.nav-toggle{display:inline-block}
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --bg: #f9fafb;
+  --text: #1f2937;
+  --white: #ffffff;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  animation: fadeIn 0.8s ease-in;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+header {
+  background: var(--white);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.3s, transform 0.3s;
+}
+
+header nav ul li a:hover {
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.hero {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--white);
+  border-radius: 0 0 2rem 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Sections */
+section {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-dark);
+}
+
+/* Cards / Plans */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+/* Buttons */
+button, .btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover, .btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Forms */
+form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+input, textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  width: 100%;
+  transition: border 0.3s;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+  background: var(--white);
+  color: #6b7280;
+  font-size: 0.9rem;
+  border-top: 1px solid #eee;
+}
