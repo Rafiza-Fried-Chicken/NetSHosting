@@ -1,54 +1,25 @@
-const path = require('path');
-const fs = require('fs');
+require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
+const path = require('path');
 const morgan = require('morgan');
-const dotenv = require('dotenv');
-dotenv.config();
-
-
-const { ensureSchema } = require('./utils/db');
-const uploadRoute = require('./routes/upload');
-const filesRoute = require('./routes/files');
-
-
+const fs = require('fs');
 const app = express();
-const PORT = process.env.PORT || 3000;
 
+const uploadRouter = require('./routes/upload');
+const filesRouter = require('./routes/files');
 
-// Logs
-if (!fs.existsSync(path.join(__dirname, 'logs'))) fs.mkdirSync(path.join(__dirname, 'logs'));
-const accessLogStream = fs.createWriteStream(path.join(__dirname, 'logs', 'access.log'), { flags: 'a' });
+// logging ke logs/access.log
+const accessLogStream = fs.createWriteStream(path.join(__dirname, 'logs/access.log'), { flags: 'a' });
 app.use(morgan('combined', { stream: accessLogStream }));
 
-
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-
-// Ensure DB tables
-ensureSchema();
-
-
-// Static SPA
+// static file public/
 app.use(express.static(path.join(__dirname, 'public')));
-// Local uploaded files (fallback storage)
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// routes
+app.use('/api/upload', uploadRouter);
+app.use('/f', filesRouter);
 
-// API routes
-app.use('/api', uploadRoute);
-app.use('/api', filesRoute);
-
-
-// SPA fallback – serve index.html for all non-API routes
-app.get('*', (req, res) => {
-res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-console.log(`NetsHosting server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
-
