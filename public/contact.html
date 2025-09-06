@@ -1,49 +1,60 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Contact — NetsHosting</title>
-<link rel="stylesheet" href="/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - nets.hosting</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      color: #222;
+      margin: 0; padding: 2rem;
+    }
+    header {
+      background-color: #0d47a1;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #0d47a1;
+      color: white;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    a {
+      color: #0d47a1;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-<header class="topbar">
-<div class="container row between center">
-<div class="logo">netshosting</div>
-<button class="nav-toggle" aria-label="Open menu">☰</button>
-<nav class="nav">
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="hosting.html">Hosting Plans</a></li>
-<li><a href="domains.html">Domains</a></li>
-<li><a href="support.html">Support</a></li>
-<li><a href="cloud.html">Cloud / Temporary Storage</a></li>
-<li><a href="about.html">About Us</a></li>
-<li><a href="contact.html" class="active">Contact</a></li>
-</ul>
-</nav>
-</div>
-</header>
-
-
-<main class="container">
-<h2>Contact</h2>
-<p class="muted">Let’s build something great. Tell us about your needs.</p>
-<form class="card form" id="contactForm">
-<label><span>Company</span><input type="text" name="company" placeholder="Your company"></label>
-<label><span>Email</span><input required type="email" name="email" placeholder="you@company.com"></label>
-<label><span>Tell us about your needs</span><textarea required name="needs" rows="4"></textarea></label>
-<button class="btn primary" type="submit">Send</button>
-<div id="contactMsg" class="muted"></div>
-</form>
-</main>
-
-
-<footer class="footer container">
-<small>© <span id="year7"></span> NetsHosting</small>
-</footer>
-
-
-<script src="/app.js"></script>
+  <header>nets.hosting - Contact</header>
+  <main>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:contact@nets.hosting">contact@nets.hosting</a></p>
+    <p>Phone: +62 812 1677 6580</p>
+    <p>Address: Jl. Contoh No.123, Jakarta, Indonesia</p>
+    <p><a href="index.html">Kembali ke Home</a></p>
+  </main>
+  <footer>&copy; 2025 nets.hosting - All rights reserved.</footer>
 </body>
 </html>
