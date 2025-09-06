@@ -1,8 +1,10 @@
-function makeSlug(length = 10) {
-const alphabet = 'abcdefghijklmnopqrstuvwxyz0123456789';
-let out = '';
-for (let i = 0; i < length; i++) out += alphabet[Math.floor(Math.random() * alphabet.length)];
-return out;
+function generateSlug(length = 6) {
+  const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let slug = '';
+  for (let i = 0; i < length; i++) {
+    slug += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return slug;
 }
-module.exports = { makeSlug };
 
+module.exports = { generateSlug };
