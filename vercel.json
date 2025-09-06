@@ -1,12 +1,12 @@
 {
-"version": 2,
-"routes": [
-{ "src": "^/$", "dest": "/index.html" },
-{ "src": "^/hosting$", "dest": "/hosting.html" },
-{ "src": "^/domains$", "dest": "/domains.html" },
-{ "src": "^/support$", "dest": "/support.html" },
-{ "src": "^/cloud$", "dest": "/cloud.html" },
-{ "src": "^/about$", "dest": "/about.html" },
-{ "src": "^/contact$", "dest": "/contact.html" }
-]
+  "version": 2,
+  "builds": [
+    { "src": "server.js", "use": "@vercel/node" },
+    { "src": "public/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "server.js" },
+    { "src": "/f/(.*)", "dest": "server.js" },
+    { "src": "/(.*)", "dest": "/public/$1" }
+  ]
 }
