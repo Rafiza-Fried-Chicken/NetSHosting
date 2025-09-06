@@ -1,28 +1,16 @@
 {
-"name": "NetsHost",
-"version": "1.0.0",
-"private": true,
-"description": "NetsHosting – Modern SPA with Node/Express backend (uploads + optional cloud storage)",
-"scripts": {
-"dev": "nodemon server.js",
-"start": "node server.js",
-"build": "echo 'SPA – nothing to build'",
-"postinstall": "mkdir -p uploads logs"
-},
-"dependencies": {
-"cors": "^2.8.5",
-"dotenv": "^16.4.5",
-"express": "^4.19.2",
-"mime": "^4.0.4",
-"multer": "^1.4.5-lts.1",
-"sqlite3": "^5.1.7",
-"uuid": "^9.0.1"
-},
-"devDependencies": {
-"nodemon": "^3.1.0"
-},
-"engines": {"node": ">=18"}
+  "name": "nets-hosting",
+  "version": "1.0.0",
+  "description": "Simple file hosting service like catbox.moe",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "sqlite3": "^5.1.6",
+    "morgan": "^1.10.0",
+    "dotenv": "^16.3.1"
+  }
 }
-
-
-
